@@ -9,7 +9,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">更換頭像</div>
                     <div class="panel-body">
-                    	<form method="POST" action="{{ action('UserController@postAvatar') }}" enctype="multipart/form-data">
+                    	<form method="POST" action="{{ action('Blog\UserController@postAvatar') }}" enctype="multipart/form-data">
                     		{{ csrf_field() }}
                     		<label>目前頭像</label>
                     		<div class="row text-center">

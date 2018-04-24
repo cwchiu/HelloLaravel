@@ -19,20 +19,20 @@ Route::get('/', function () {
 });
 
 Route::group([
-    'prefix' => 'blade'
-],function () {
+    'prefix' => 'blade',
+], function () {
     Route::get('/hello', 'BladeController@hello');
     Route::get('/inject', 'BladeController@inject');
     Route::get('/error', 'BladeController@error');
 });
-// »{ÃÒ¸ô¥Ñ
+// èªè­‰è·¯ç”±
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 Route::get('/carbon', 'Hello@carbon');
 Route::get('/lang', 'Hello@lang');
 
-Route::group(['prefix'=>'user','middleware'=>['auth']],function(){
- 	Route::get('avatar','UserController@getAvatar');
- 	Route::post('avatar','UserController@postAvatar');
+Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
+    Route::get('avatar', 'UserController@getAvatar');
+    Route::post('avatar', 'UserController@postAvatar');
 });
