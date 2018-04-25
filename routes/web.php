@@ -31,6 +31,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 Route::get('/carbon', 'Hello@carbon');
 Route::get('/lang', 'Hello@lang');
+Route::get('/email', 'Hello@email');
 
 Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
     Route::get('avatar', 'UserController@getAvatar');

@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Cookie;
 use App\Article;
 use Carbon\Carbon;
 use App;
+use App\Mail\WelcomeMail;
+use Illuminate\Support\Facades\Mail;
 
 class Hello extends Controller
 {
@@ -155,5 +157,15 @@ class Hello extends Controller
     
     public function listArticles(){
         return Article::all();
+    }
+    
+    public function email(){
+        $objDemo = new \stdClass();
+        $objDemo->demo_one = 'Demo One Value';
+        $objDemo->demo_two = 'Demo Two Value';
+        $objDemo->sender = 'SenderUserName';
+        $objDemo->receiver = 'ReceiverUserName';
+ 
+        Mail::to("receiver@grr.la")->send(new WelcomeMail($objDemo));
     }
 }
