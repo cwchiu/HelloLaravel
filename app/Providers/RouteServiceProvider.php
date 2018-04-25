@@ -40,6 +40,7 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapWebRoutes();
         $this->mapBlogRoutes();
         $this->mapHttpBinRoutes();
+        $this->mapNoteRoutes();
 
         //
     }
@@ -69,6 +70,17 @@ class RouteServiceProvider extends ServiceProvider
             'prefix' => 'blog',
         ], function ($router) {
             require base_path('routes/blog.php');
+        });
+    }
+    
+    protected function mapNoteRoutes()
+    {
+        Route::group([
+            'middleware' => 'note',
+            'namespace' => $this->namespace,
+            'prefix' => 'note',
+        ], function ($router) {
+            require base_path('routes/note.php');
         });
     }
     
