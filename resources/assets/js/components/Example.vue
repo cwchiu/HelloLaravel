@@ -7,6 +7,8 @@
 
                     <div class="panel-body">
                         I'm an example component!
+                        這是一個 Vue 測試
+                        #2
                     </div>
                 </div>
             </div>

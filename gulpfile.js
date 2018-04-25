@@ -1,19 +1,11 @@
+/* 載入 Elixir */
 const elixir = require('laravel-elixir');
 
+/* 載入編譯 vue 2.x 需要的 webpack loader */
 require('laravel-elixir-vue-2');
 
-/*
- |--------------------------------------------------------------------------
- | Elixir Asset Management
- |--------------------------------------------------------------------------
- |
- | Elixir provides a clean, fluent API for defining some basic Gulp tasks
- | for your Laravel application. By default, we are compiling the Sass
- | file for our application, as well as publishing vendor resources.
- |
- */
-
+/* 定義編譯流程 */
 elixir(mix => {
-    mix.sass('app.scss')
-       .webpack('app.js');
+    mix.sass('app.scss') /* 編譯Sass */
+       .webpack('app.js'); /* 編譯js */
 });
