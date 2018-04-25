@@ -113,5 +113,5 @@ return [
     */
 
     'attributes' => [],
-    'captcha' => 'Error Code'
+    'captcha' => '你好'
 ];

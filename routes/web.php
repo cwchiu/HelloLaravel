@@ -32,6 +32,8 @@ Route::get('/home', 'HomeController@index');
 Route::get('/carbon', 'Hello@carbon');
 Route::get('/lang', 'Hello@lang');
 Route::get('/email', 'Hello@email');
+Route::get('/captcha2', 'Hello@captcha2');
+Route::post('/captcha2', 'Hello@captcha2Post')->name('captcha.post');
 
 Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
     Route::get('avatar', 'UserController@getAvatar');

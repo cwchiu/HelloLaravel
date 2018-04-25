@@ -187,6 +187,7 @@ return [
         Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
         // laravel/socialite
         // Laravel\Socialite\SocialiteServiceProvider::class,
+        Mews\Captcha\CaptchaServiceProvider::class
     ],
 
     /*
@@ -243,6 +244,7 @@ return [
         'SEO' => Artesaos\SEOTools\Facades\SEOTools::class,
         // laravel/socialite
         // 'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'Captcha' => Mews\Captcha\FacadesCaptcha::class
     ],
 
 ];

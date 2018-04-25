@@ -159,6 +159,23 @@ class Hello extends Controller
         return Article::all();
     }
     
+    public function captcha2(){
+        return view('captcha2', [
+            
+        ]);
+    }
+    
+    public function captcha2Post(Request $req){
+        // 驗證
+        $this->validate($req, [
+            'captcha' => 'required|captcha'
+        ]);
+        
+        return [
+            'result' => 'Ok'
+        ];
+    }
+    
     public function email(){
         $objDemo = new \stdClass();
         $objDemo->demo_one = 'Demo One Value';
