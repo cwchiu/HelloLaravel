@@ -10,10 +10,16 @@ use Response;
 use Illuminate\Support\Facades\Input;
 class NoteController extends Controller
 {
-    public function api()
+    public function v1()
     {    
       return view('note.api');       
     }
+    
+    public function v2()
+    {    
+      return view('note.v2');       
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -71,7 +77,12 @@ class NoteController extends Controller
      */
     public function show($id)
     {
-        //
+        $note = Note::find($id);
+        if($note){
+            return $note;
+        }
+        return response()->json(['id' => $id], 404);
+         // return abort(404);
     }
 
     /**

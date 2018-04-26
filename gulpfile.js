@@ -8,4 +8,6 @@ require('laravel-elixir-vue-2');
 elixir(mix => {
     mix.sass('app.scss') /* 編譯Sass */
        .webpack('app.js'); /* 編譯js */
+       
+    mix.webpack('app2.js');
 });
