@@ -12,6 +12,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+use App\Events\LogEvent;
 
 class Hello extends Controller
 {
@@ -19,6 +20,23 @@ class Hello extends Controller
     {
         App::setLocale('zh-tw');
         return view('lang', ['name' => 'Arick']);
+    }
+    
+    public function event(){
+        event( new LogEvent("event test"));
+        return response('event fired', 200);
+    }
+    
+    public function gmap()
+    {
+        return view('google.map', [
+            'cafes' => [],
+            'center' => [
+                'lat' => 24.042571, 
+                'lng' => 120.9472711, 
+                'zoom' => 8
+            ]
+        ]);
     }
 
     public function carbon()
