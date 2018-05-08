@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App;
 use App\Article;
+use App\Events\LogEvent;
 use App\Mail\WelcomeMail;
 use Cache;
 use Carbon\Carbon;
@@ -12,30 +13,37 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
-use App\Events\LogEvent;
+use Session;
 
 class Hello extends Controller
 {
-    public function lang()
+    public function lang(Request $request)
     {
-        App::setLocale('zh-tw');
+        if ($request->input('n') == 'en') {
+            App::setLocale('en');
+            Session::set('Language', 'en');
+        } else if ($request->input('n') == 'tw') {
+            App::setLocale('zh-tw');
+            Session::set('Language', 'zh-tw');
+        }
         return view('lang', ['name' => 'Arick']);
     }
-    
-    public function event(){
-        event( new LogEvent("event test"));
+
+    public function event()
+    {
+        event(new LogEvent("event test"));
         return response('event fired', 200);
     }
-    
+
     public function gmap()
     {
         return view('google.map', [
             'cafes' => [],
             'center' => [
-                'lat' => 24.042571, 
-                'lng' => 120.9472711, 
-                'zoom' => 8
-            ]
+                'lat' => 24.042571,
+                'lng' => 120.9472711,
+                'zoom' => 8,
+            ],
         ]);
     }
 
@@ -254,6 +262,17 @@ class Hello extends Controller
     {
         Cache::forget($key);
         return ['key' => $key];
+    }
+
+    public function sessionGet(Request $request)
+    {
+        return ['session' => Session::get('data', 'none')];
+    }
+
+    public function sessionSet()
+    {
+        Session::get('data', 'Arick');
+        return ['ok' => true];
     }
 
 }

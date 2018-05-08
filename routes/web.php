@@ -34,6 +34,8 @@ Route::get('/lang', 'Hello@lang');
 Route::get('/email', 'Hello@email');
 Route::get('/vue', 'Hello@vue');
 Route::get('/event', 'Hello@event');
+Route::get('/session/get', 'Hello@sessionGet');
+Route::get('/session/set', 'Hello@sessionSet');
 Route::get('/google/map', 'Hello@gmap');
 Route::get('/captcha2', 'Hello@captcha2');
 Route::post('/captcha2', 'Hello@captcha2Post')->name('captcha.post');
