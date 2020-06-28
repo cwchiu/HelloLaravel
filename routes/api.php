@@ -27,3 +27,9 @@ Route::group([
 ],function () {    
     include base_path("routes/httpbin.php");
 });
+
+Route::group([
+    'prefix' => 'article'
+],function () {    
+    include base_path("routes/article.php");
+});
