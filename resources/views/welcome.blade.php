@@ -68,7 +68,14 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+    Logout
+</a>
+
+<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    @csrf
+</form>
+
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
@@ -81,18 +88,13 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Arick
+                    My Laravel7 Example
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="{{ route('blog.index') }}">Blog</a>
+                    <a href="{{ route('tasks.index') }}">Tasks</a>
+                    <a href="{{ route('httpbin.index') }}">HttpBin</a>
                 </div>
             </div>
         </div>

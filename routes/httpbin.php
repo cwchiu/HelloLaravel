@@ -1,7 +1,5 @@
 <?php
 
-// use Illuminate\Http\Request;
-
 Route::group([
     'prefix' => 'cookies'
 ],function () {
@@ -10,7 +8,7 @@ Route::group([
     Route::get('/delete', 'HttpBinController@cookiesDelete');
 });
 
-Route::get('/', 'HttpBinController@index');
+Route::get('/', 'HttpBinController@index')->name('httpbin.index');
 Route::get('/ip', 'HttpBinController@ip');
 Route::get('/uuid', 'HttpBinController@uuid');
 Route::get('/user-agent', 'HttpBinController@useragent');
