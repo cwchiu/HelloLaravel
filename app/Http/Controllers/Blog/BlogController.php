@@ -38,7 +38,6 @@ class BlogController extends BaseController
             'post_types' => $post_types,
             'keyword' => $keyword
         ]);
-    }
-    
+    }   
     
 }

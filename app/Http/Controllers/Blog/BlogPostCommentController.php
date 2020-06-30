@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Blog;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
-use App\Http\Requests\CreateCommentRequest;
+use App\Http\Requests\Blog\CreateCommentRequest;
 
 use App\Models\Blog\BlogComment as CommentEloquent;
 

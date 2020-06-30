@@ -8,7 +8,7 @@ use App\Http\Requests;
 use App\Models\Blog\BlogPost as PostModel;
 use App\Models\Blog\BlogPostType as PostTypeModel;
 
-use App\Repository\BlogRepository;
+use App\Repository\Blog\BlogRepository;
 
 class BlogPostTypeController extends Controller
 {

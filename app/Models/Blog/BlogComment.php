@@ -3,6 +3,7 @@
 namespace App\Models\Blog;
 
 use Illuminate\Database\Eloquent\Model;
+use App\User;
 
 class BlogComment extends Model
 {
